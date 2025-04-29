@@ -18,12 +18,28 @@ function TaskComponent(task) {
  * Un objet contenant toutes les fonctions utiles à l'affichage de mon front
  */
 const UIService = {
+
+    /**
+     * Affiche toutes les taches 
+     */
     displayAllTasks(){
         const taskContainer = document.querySelector(".tasks-container");
-    
+        
         TaskService.getAllTasks().forEach(task => {
             taskContainer.appendChild(TaskComponent(task));
         });
+    },
+    
+    /**
+     * Efface toutes les tâches contenues dans le Task Container. 
+     */
+    clearAllTasks(){
+        const taskContainer = document.querySelector(".tasks-container");
+        taskContainer.innerHTML = "";
+    },
+
+    refreshAllTasks(){
+        /**To do */
     }
 }
 
@@ -39,6 +55,13 @@ const TaskService = {
         // }else{
         // }
         return JSON.parse(JSONTasks);
+    },
+
+    /**
+     * Ajout une tache dans le localStorage
+     */
+    pushTask(){
+        // todo
     }
 }
 
